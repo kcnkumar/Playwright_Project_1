@@ -68,6 +68,20 @@ jobs:
             echo "Playwright report folder was not generated. Check the workflow logs for errors." > report-missing.txt
             zip playwright-report.zip report-missing.txt
           fi
+      - name: Combine intro text, pipeline link, and HTML report
+        if: always()
+        run: |
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          {
+            echo "<p>Following is the last run report.</p>"
+            echo "<p><strong>Pipeline Run:</strong> <a href=\"${RUN_URL}\">${RUN_URL}</a></p>"
+            echo "<hr>"
+            if [ -f "playwright-report/index.html" ]; then
+              cat playwright-report/index.html
+            else
+              echo "<p>No HTML report was generated. Check the pipeline link above for error logs.</p>"
+            fi
+          } > combined-report.html
 
       - name: Send test report via email
         if: always()
@@ -80,8 +94,9 @@ jobs:
           subject: "Playwright Report (${{ job.status }}): ${{ github.repository }}"
           to: kcnkumar@gmail.com
           from: "GitHub Actions <${{ secrets.MAIL_USERNAME }}>"
-          body: |
-            Playwright tests finished with status: ${{ job.status }}.
-            Download and unzip the attached playwright-report.zip to view index.html.
-            Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          attachments: playwright-report.zip
+          html_body: file://combined-report.html
+#           body: |
+#             Playwright tests finished with status: ${{ job.status }}.
+#             Download and unzip the attached playwright-report.zip to view index.html.
+#             Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+#          attachments: playwright-report.zip
