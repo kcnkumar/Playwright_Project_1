@@ -68,9 +68,6 @@ jobs:
             echo "Playwright report folder was not generated. Check the workflow logs for errors." > report-missing.txt
             zip playwright-report.zip report-missing.txt
           fi
-      - name: Generate Gmail-friendly HTML summary
-        if: always()
-        run: node build-email.js
       - name: Combine intro text, pipeline link, and HTML report
         if: always()
         run: |
@@ -97,8 +94,7 @@ jobs:
           subject: "Playwright Report (${{ job.status }}): ${{ github.repository }}"
           to: kcnkumar@gmail.com
           from: "GitHub Actions <${{ secrets.MAIL_USERNAME }}>"
-          # html_body: file://combined-report.html
-          html_body: file://email-report.html
+          html_body: file://combined-report.html
           attachments: playwright-report/index.html
 #           body: |
 #             Playwright tests finished with status: ${{ job.status }}.
