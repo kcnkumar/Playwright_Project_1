@@ -3,8 +3,9 @@ import type { Locator } from '@playwright/test';
 
 test('test to check partial text / Substring methods using CSS selectors', async ({ page }) => {
     await page.goto('https://www.amazon.in');
-    let continueShopping = await page.locator("button[type='submit']");
-    if (await continueShopping.visible() && await continueShopping.isEnabled())
+    let continueShopping =  page.locator("button[type='submit']");
+    console.log(await continueShopping.isVisible() );
+    if (await continueShopping?.isVisible() )
         await continueShopping.click();
     else
         console.log(`${continueShopping} element is not visible`);
