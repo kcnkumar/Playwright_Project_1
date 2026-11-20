@@ -10,7 +10,7 @@ test('test for CSS indexing', async ({ page }) => {
 
 
 
-test.only(`test for Orange hrm login and logout`, async ({ page }) => {
+test(`test for Orange hrm login and logout`, async ({ page }) => {
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
     console.log(`login defailt creds \n Username : Admin \n Password : admin123`);
