@@ -3,6 +3,10 @@ import { test } from "@playwright/test";
 //practice
 test(`verify list of search elements in google`, async ({ page }) => {
     await page.goto('https://google.com');
+    await page.waitForTimeout(2000);
+    let pop = page.locator("//div[@role='button']/div//span[contains(text(),'Don')]");
+    if (await pop.isVisible())
+        await pop.click();
     await page.locator("textarea[aria-label= 'Search']").fill('Playwright');
     await page.waitForTimeout(5000);
 
