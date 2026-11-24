@@ -12,7 +12,7 @@ test(`test to check inbuilt locators - getbyrole `, async ({ page }) => {
     await page.waitForTimeout(2500);
 })
 
-test.only(`other inbuilt locators verfication`, async ({ page }) => {
+test(`other inbuilt locators verfication`, async ({ page }) => {
     await page.goto("https://www.amazon.in/", { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(5000);
     let continueShopping = page.getByRole('button', { name: 'Continue shopping' });
