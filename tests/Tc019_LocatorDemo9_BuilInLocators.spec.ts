@@ -34,13 +34,15 @@ test(`other inbuilt locators verfication`, async ({ page }) => {
 
     // getByPlaceHolder
 
+    let searchstartsWith = page.locator("//input[contains(@id,'twotabsearcht')]");
+    await searchstartsWith.fill("iphone");
+    await searchstartsWith.press("Enter");
     //getByAltText
-    await page.getByAltText("ALtext-Test").first().click();
+    await page.getByAltText(/Apple iPhone/).first().click();
     await page.waitForTimeout(5000);
     //getByTestId
 
     //getByLabel
-    await page.locator("").scrollIntoViewIfNeeded();
     await page.getByLabel("Search Amazon.in").fill("");
     await page.waitForTimeout(1500);
 })
