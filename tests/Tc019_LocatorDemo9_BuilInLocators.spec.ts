@@ -35,7 +35,7 @@ test(`other inbuilt locators verfication`, async ({ page }) => {
     // getByPlaceHolder
 
     //getByAltText
-    await page.getByAltText("1").first().click();
+    await page.getByAltText("ALtext-Test").first().click();
     await page.waitForTimeout(5000);
     //getByTestId
 
