@@ -82,7 +82,14 @@ jobs:
               echo "<p>No HTML report was generated. Check the pipeline link above for error logs.</p>"
             fi
           } > combined-report.html
-
+      - name: Read HTML file
+        id: read_html
+        run: |
+          # Ensure you are pointing to an unzipped .html file
+          CONTENT=$(cat playwright-report/index.html)
+          echo "html_content<<EOF" >> $GITHUB_OUTPUT
+          echo "$CONTENT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
       - name: Send test report via email
         if: always()
         uses: dawidd6/action-send-mail@v24
@@ -94,7 +101,8 @@ jobs:
           subject: "Playwright Report (${{ job.status }}): ${{ github.repository }}"
           to: kcnkumar@gmail.com
           from: "GitHub Actions <${{ secrets.MAIL_USERNAME }}>"
-          html_body: file://combined-report.html
+          # html_body: file://combined-report.html
+          html_body: ${{ steps.read_html.outputs.html_content }}
           attachments: playwright-report/index.html
 #           body: |
 #             Playwright tests finished with status: ${{ job.status }}.
