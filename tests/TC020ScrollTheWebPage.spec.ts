@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { scrollDown, scrollToElement, scrollup } from './Generics/TestUtils.js';
+import { scrollDown, scrollToElement, scrollup } from '../Generics/TestUtils.js';
 
 test(`test the generics version of scroll functionality`, async ({ page }) => {
     await page.goto("https://www.amazon.in/", { waitUntil: 'domcontentloaded' });

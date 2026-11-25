@@ -1,7 +1,7 @@
 //https://formy-project.herokuapp.com/form
 
 import { test, expect, type Locator } from '@playwright/test'
-import { scrollToElement } from './Generics/TestUtils.js'
+import { scrollToElement } from '../Generics/TestUtils.js'
 test(`select dropdown by option`, async ({ page }) => {
     await page.goto("https://formy-project.herokuapp.com/form", { waitUntil: 'domcontentloaded', timeout: 2500 });
     await scrollToElement(page, page.getByLabel('Years of experience:'))
