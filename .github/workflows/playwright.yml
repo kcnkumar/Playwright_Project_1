@@ -102,10 +102,11 @@ jobs:
           to: kcnkumar@gmail.com
           from: "GitHub Actions <${{ secrets.MAIL_USERNAME }}>"
           # html_body: file://combined-report.html
-          html_body: ${{ steps.read_html.outputs.html_content }}
+          # html_body: ${{ steps.read_html.outputs.html_content }}
           attachments: playwright-report/index.html
-#           body: |
-#             Playwright tests finished with status: ${{ job.status }}.
-#             Download and unzip the attached playwright-report.zip to view index.html.
-#             Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-#          attachments: playwright-report.zip
+          body: |
+            Playwright tests finished with status: ${{ job.status }}.
+            Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            <a href="https://github.io{{ github.run_id }}/index.html" target="_blank" rel="noopener noreferrer">  Open Playwright Report</a>
+          # Download and unzip the attached playwright-report.zip to view index.html.
+        #  attachments: playwright-report.zip
