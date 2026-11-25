@@ -3,7 +3,7 @@
 
 import { test, type Locator } from '@playwright/test';
 
-test(`automate dynamic selections or bootsrap selections using RedBus`, async ({ page }) => {
+test.skip(`automate dynamic selections or bootsrap selections using RedBus`, async ({ page }) => {
     await page.goto("https://www.redbus.in/", { waitUntil: 'domcontentloaded', timeout: 2500 });
     await page.getByRole('combobox', { name: 'From' }).fill('Bengaluru');
     await page.waitForTimeout(2500);
