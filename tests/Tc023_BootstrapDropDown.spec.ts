@@ -9,7 +9,7 @@ test(`automate dynamic selections or bootsrap selections using RedBus`, async ({
     await page.waitForTimeout(2500);
 });
 
-test.only(`multi select `, async ({ page }) => {
+test(`multi select `, async ({ page }) => {
     await page.goto("https://www.jqueryscript.net/demo/Drop-Down-Combo-Tree/", { waitUntil: 'domcontentloaded', timeout: 2500 });
     await page.getByRole('textbox', { name: '' }).first().click();
     const el: Locator[] = await page.locator("//input[@placeHolder='Type to filter'][1]//following::ul/li").all();
