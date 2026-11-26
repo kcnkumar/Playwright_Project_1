@@ -18,4 +18,9 @@
 7. jqueryscript.net/demo/Drop-Down-Combo-Tree/
 
 # To read csv using thirdparty library 
-*** npm i papaparse *** > https://www.npmjs.com/package/papaparse 
+* npm i papaparse  > https://www.npmjs.com/package/papaparse 
+* npm i --save-dev @types/papaparse 
+
+# to read xls install xlsx package
+
+* npm i xlsx

@@ -12,5 +12,5 @@ test(`basic way to read csv`, async ({ page }) => {
 
     // }
 
-    console.log(getSingleEntry(0)?.userName)
+    console.log((getSingleEntry(0) as { userName: string, password:string }).userName)
 })

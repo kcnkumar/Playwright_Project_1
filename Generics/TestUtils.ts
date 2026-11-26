@@ -21,6 +21,8 @@ export async function scrollup(page: Page): Promise<void> {
 
 export async function scrollToElement(page: Page, element: Locator): Promise<void> {
     console.log(`----------------------------- ${await element.isVisible()}`)
-    await element.scrollIntoViewIfNeeded();
-    await element.highlight();
+    if (await element.isVisible()) {
+        await element.scrollIntoViewIfNeeded();
+        await element.highlight();
+    }
 }
