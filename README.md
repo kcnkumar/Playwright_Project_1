@@ -14,9 +14,11 @@
 3. https://tutorialsninja.com/demo/index.php?route=account/register
 4. https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 5. https://automationplayground.com/crm/
-6. https://automationplayground.com/crm/customers.html?email-name=test%40gmail.com&password-name=test123&submit-name= *** same as #5 this is to override login ***
+6. https://automationplayground.com/crm/customers.html?email-name=test%40gmail.com&password-name=test123&submit-name= **same as #5 this is to override login**
 7. jqueryscript.net/demo/Drop-Down-Combo-Tree/
 8. https://the-internet.herokuapp.com/javascript_alerts 
+9. https://ui.vision/demo/webtest/frames/
+10. [Nested Frames](https://selectorshub.com/iframe-scenario/)
 
 # To read csv using thirdparty library 
 * npm i papaparse  > https://www.npmjs.com/package/papaparse 
